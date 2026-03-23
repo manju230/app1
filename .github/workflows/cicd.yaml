@@ -32,7 +32,7 @@ jobs:                                               # Top-level jobs group
         run: docker build -t app1 .                # Tags the local image as 'my-app:latest'; '.' is the build context (current dir)
 
       - name: Tag Docker Image                       # Step 5: retag the local image with your ECR registry/repo name
-        run: docker tag my-app:latest ${{ steps.login-ecr.outputs.registry }}/app1-repo:latest
+        run: docker tag app1:latest ${{ steps.login-ecr.outputs.registry }}/app1-repo:latest
                                                      # Example final tag: 701130021598.dkr.ecr.ap-south-1.amazonaws.com/app1-repo:latest
 
       - name: Push Docker Image                      # Step 6: push the newly tagged image to ECR
